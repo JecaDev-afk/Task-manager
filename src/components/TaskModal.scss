@@ -1,0 +1,47 @@
+@use '../styles/variables' as *;
+
+.modal-backdrop {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: $color-bg-secondary;
+  padding: 32px;
+  width: 100%;
+  max-width: 500px;
+  border: 1px solid $color-border;
+  box-shadow: $shadow-hover;
+
+  h2 {
+    margin-bottom: 24px;
+    font-size: 20px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 14px;
+      font-weight: 600;
+    }
+    
+    textarea {
+      resize: vertical;
+    }
+  }
+
+  .modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 32px;
+  }
+}
