@@ -1,0 +1,144 @@
+@use '../styles/variables' as *;
+
+.kanban-board-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  .board-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+    
+    h2 {
+      font-size: 24px;
+    }
+  }
+
+  .board-columns {
+    display: flex;
+    gap: 24px;
+    height: 100%;
+    align-items: flex-start;
+  }
+}
+
+.kanban-column {
+  flex: 1;
+  background-color: $color-bg-card;
+  border: 1px solid $color-border;
+  min-height: 500px;
+  display: flex;
+  flex-direction: column;
+  transition: background-color 0.2s ease;
+
+  &.drag-over {
+    background-color: #eee;
+  }
+
+  .column-header {
+    padding: 16px;
+    border-bottom: 1px solid $color-border;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $color-bg-secondary;
+
+    h3 {
+      font-size: 16px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .task-count {
+      background-color: $color-bg-main;
+      padding: 4px 8px;
+      font-size: 12px;
+      font-weight: bold;
+      color: $color-text-secondary;
+    }
+  }
+
+  .column-content {
+    padding: 16px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+}
+
+.task-card {
+  background-color: $color-bg-secondary;
+  border: 1px solid $color-border;
+  padding: 16px;
+  cursor: grab;
+  position: relative;
+  box-shadow: $shadow-sm;
+  transition: box-shadow 0.2s ease, border-color 0.2s ease;
+
+  &:hover {
+    box-shadow: $shadow-md;
+    border-color: #ccc;
+  }
+
+  &.overlay {
+    cursor: grabbing;
+    box-shadow: $shadow-hover;
+    transform: scale(1.02);
+    z-index: 999;
+  }
+
+  .task-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 8px;
+
+    h4 {
+      font-size: 16px;
+      margin: 0;
+    }
+
+    .delete-btn {
+      background: transparent;
+      color: $color-text-secondary;
+      padding: 4px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      &:hover {
+        color: #ff4444;
+        background: rgba(255,0,0,0.1);
+      }
+    }
+  }
+
+  .task-desc {
+    font-size: 14px;
+    color: $color-text-secondary;
+    margin-bottom: 16px;
+    line-height: 1.4;
+  }
+
+  .task-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 12px;
+
+    .priority {
+      padding: 2px 6px;
+      border: 1px solid;
+      font-weight: 600;
+      font-size: 11px;
+    }
+
+    .date {
+      color: $color-text-secondary;
+    }
+  }
+}
