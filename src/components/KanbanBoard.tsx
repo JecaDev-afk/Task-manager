@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { DndContext, DragOverlay, closestCorners, KeyboardSensor, PointerSensor, useSensor, useSensors } from '@dnd-kit/core';
 import type { DragStartEvent, DragEndEvent, DragOverEvent } from '@dnd-kit/core';
-import { SortableContext, sortableKeyboardCoordinates } from '@dnd-kit/sortable';
+import { sortableKeyboardCoordinates } from '@dnd-kit/sortable';
 import KanbanColumn from './KanbanColumn';
 import TaskCard from './TaskCard';
 import TaskModal from './TaskModal';
@@ -36,7 +36,7 @@ const KanbanBoard: React.FC = () => {
     setActiveId(event.active.id as string);
   };
 
-  const handleDragOver = (event: DragOverEvent) => {
+  const handleDragOver = (_event: DragOverEvent) => {
     // Basic logic for visual cues can be added here if needed
   };
 
